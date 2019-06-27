@@ -11,5 +11,5 @@ import Foundation
 
 struct TreeData {
     
-    let items = ["Betula papyrifera", "Gingko biloba", "Washingtonia filfera", "Phoenix canariensis", "Platanus occidentalis", "Quercus agrifolia", "Pinus monophylla", "Pinus ponderosa"]
+    var items = ["Betula papyrifera", "Gingko biloba", "Washingtonia filfera", "Phoenix canariensis", "Platanus occidentalis", "Quercus agrifolia", "Pinus monophylla", "Pinus ponderosa"]
 }

@@ -27,10 +27,10 @@ class ViewController: UITableViewController {
     
     func insertBatch() {
         var indexPaths = [NSIndexPath]()
-        for i in viewModel.items.count...viewModel.items.count + 5 {
+      /*  for i in viewModel.items.count...viewModel.items.count + 5 {
             viewModel.items.append("Item \(i + 1)")
             indexPaths.append(NSIndexPath(row: i, section: 0))
-        }
+        }*/
         var bottomHalfIndexPaths = [NSIndexPath]()
         for _ in 0...indexPaths.count / 2 - 1 {
             bottomHalfIndexPaths.append(indexPaths.removeLast())
@@ -42,10 +42,10 @@ class ViewController: UITableViewController {
         tableView.endUpdates()
     }
     
-    func insert() {
-        viewModel.items.append("Item \(items.count + 1)")
-        let insertionIndexPath = NSIndexPath(row: viewModel.items.count - 1, section: 0)
-        
+   @objc func insert() {
+    
+    viewModel.insertView()
+    let insertionIndexPath = NSIndexPath(row: viewModel.items.count - 1, section: 0)
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,7 +55,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath as IndexPath) as! MyCell
         myCell.nameLabel.text = viewModel.items[indexPath.row]
-        myCell.viewController = self
+      //  myCell.viewController = self
         return myCell
     }
     
@@ -63,16 +63,13 @@ class ViewController: UITableViewController {
         return tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId")
     }
     
-    func deleteCell(_ cell: UITableViewCell) {
+   /* func deleteCell(_ cell: UITableViewCell) {
         if let deletionIndexPath = tableView.indexPath(for: cell) {
             viewModel.items.remove(at: deletionIndexPath.row)
             tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
-    }
-    
+    }*/
 }
-
-
 class Header: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
@@ -102,7 +99,7 @@ class Header: UITableViewHeaderFooterView {
 
 class MyCell: UITableViewCell {
     
-    var viewController: ViewController?
+ //   var viewController: ViewController?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -141,9 +138,9 @@ class MyCell: UITableViewCell {
         
     }
     
-    func handleAction() {
+   /* func handleAction() {
         viewController?.deleteCell(self)
-    }
+    }*/
 
 
 }

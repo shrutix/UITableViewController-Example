@@ -11,7 +11,7 @@ import Foundation
 var treeDataViewModel: [TreeDataViewModel] = [ ]
 
 class TreeDataViewModel {
-    private let treeData: TreeData
+    private var treeData: TreeData
 
     init(treeData : TreeData = TreeData()){
         self.treeData = treeData
@@ -21,8 +21,11 @@ class TreeDataViewModel {
         
     }
     
-    func batchInsertView() {
+    func insertView() {
+        treeData.items.append("Item \(items.count + 1)")
+       
         
+     
     }
 }
 
