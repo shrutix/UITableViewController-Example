@@ -14,6 +14,7 @@
 		485AF5AC22C3D7E300D50A8A /* tableViewFunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AF5AB22C3D7E300D50A8A /* tableViewFunTests.swift */; };
 		485AF5B722C3D7E300D50A8A /* tableViewFunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AF5B622C3D7E300D50A8A /* tableViewFunUITests.swift */; };
 		485AF5C522C4168C00D50A8A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AF5C422C4168C00D50A8A /* Model.swift */; };
+		485AF5CE22C41C0F00D50A8A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485AF5CD22C41C0F00D50A8A /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		485AF5B622C3D7E300D50A8A /* tableViewFunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewFunUITests.swift; sourceTree = "<group>"; };
 		485AF5B822C3D7E300D50A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		485AF5C422C4168C00D50A8A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		485AF5CD22C41C0F00D50A8A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +99,12 @@
 		485AF59522C3D7E200D50A8A /* tableViewFun */ = {
 			isa = PBXGroup;
 			children = (
-				485AF59622C3D7E200D50A8A /* AppDelegate.swift */,
-				485AF59822C3D7E200D50A8A /* ViewController.swift */,
-				485AF5C422C4168C00D50A8A /* Model.swift */,
+				485AF5C622C41AF700D50A8A /* Model */,
+				485AF5C822C41B1C00D50A8A /* View */,
+				485AF5CA22C41B3C00D50A8A /* View Model */,
+				485AF5CC22C41B6000D50A8A /* Controller */,
+				485AF5CF22C41C5200D50A8A /* Supporting Files */,
 				485AF59D22C3D7E300D50A8A /* Assets.xcassets */,
-				485AF59F22C3D7E300D50A8A /* LaunchScreen.storyboard */,
 				485AF5A222C3D7E300D50A8A /* Info.plist */,
 			);
 			path = tableViewFun;
@@ -123,6 +126,46 @@
 				485AF5B822C3D7E300D50A8A /* Info.plist */,
 			);
 			path = tableViewFunUITests;
+			sourceTree = "<group>";
+		};
+		485AF5C622C41AF700D50A8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				485AF5C422C4168C00D50A8A /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		485AF5C822C41B1C00D50A8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				485AF59F22C3D7E300D50A8A /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		485AF5CA22C41B3C00D50A8A /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				485AF5CD22C41C0F00D50A8A /* ViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		485AF5CC22C41B6000D50A8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				485AF59822C3D7E200D50A8A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		485AF5CF22C41C5200D50A8A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				485AF59622C3D7E200D50A8A /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +300,7 @@
 			files = (
 				485AF5C522C4168C00D50A8A /* Model.swift in Sources */,
 				485AF59922C3D7E200D50A8A /* ViewController.swift in Sources */,
+				485AF5CE22C41C0F00D50A8A /* ViewModel.swift in Sources */,
 				485AF59722C3D7E200D50A8A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

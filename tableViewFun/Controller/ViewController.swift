@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 class ViewController: UITableViewController {
-    var items = ["Betula papyrifera", "Gingko biloba", "Washingtonia filfera", "Phoenix canariensis", "Platanus occidentalis", "Quercus agrifolia", "Pinus monophylla", "Pinus ponderosa"]
+    let viewModel = TreeDataViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +27,14 @@ class ViewController: UITableViewController {
     
     func insertBatch() {
         var indexPaths = [NSIndexPath]()
-        for i in items.count...items.count + 5 {
-            items.append("Item \(i + 1)")
+        for i in viewModel.items.count...viewModel.items.count + 5 {
+            viewModel.items.append("Item \(i + 1)")
             indexPaths.append(NSIndexPath(row: i, section: 0))
         }
         var bottomHalfIndexPaths = [NSIndexPath]()
         for _ in 0...indexPaths.count / 2 - 1 {
             bottomHalfIndexPaths.append(indexPaths.removeLast())
-    }
+        }
         tableView.beginUpdates()
         
         tableView.insertRows(at: indexPaths as [IndexPath], with: .right)
@@ -43,34 +43,35 @@ class ViewController: UITableViewController {
     }
     
     func insert() {
-        items.append("Item \(items.count + 1)")
-        let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
+        viewModel.items.append("Item \(items.count + 1)")
+        let insertionIndexPath = NSIndexPath(row: viewModel.items.count - 1, section: 0)
         
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return viewModel.items.count
     }
     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let myCell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath as IndexPath) as! MyCell
-        myCell.nameLabel.text = items[indexPath.row]
+        myCell.nameLabel.text = viewModel.items[indexPath.row]
         myCell.viewController = self
         return myCell
     }
     
-     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerId")
     }
     
     func deleteCell(_ cell: UITableViewCell) {
         if let deletionIndexPath = tableView.indexPath(for: cell) {
-            items.remove(at: deletionIndexPath.row)
+            viewModel.items.remove(at: deletionIndexPath.row)
             tableView.deleteRows(at: [deletionIndexPath], with: .automatic)
         }
     }
     
 }
+
 
 class Header: UITableViewHeaderFooterView {
     
@@ -131,7 +132,7 @@ class MyCell: UITableViewCell {
         addSubview(nameLabel)
         addSubview(actionButton)
         
-        actionButton.addTarget(self, action: Selector("handleAction"), for: .touchUpInside)
+        actionButton.addTarget(self, action: Selector(("handleAction")), for: .touchUpInside)
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-8-[v1(80)]-8-|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": nameLabel, "v1": actionButton]))
         
